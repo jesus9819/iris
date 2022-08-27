@@ -1,0 +1,36 @@
+<article>
+  <h3 *ngIf="pendingTodo.length > 0">Pending task</h3>
+
+  <div *ngFor="let list of pendingTodo">
+    <h2>{{ list.category }}</h2>
+    <ul>
+      <li *ngFor="let item of list.items">
+        <div class="checkbox-group">
+          <input type="checkbox" (change)="updateTodo(item.id)" />
+          <span>
+            {{ item.description }}
+          </span>
+        </div>
+
+        <button (click)="delete.emit(item.id)">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</article>
+
+<article>
+  <h3 *ngIf="complete.length > 0">Complete task</h3>
+
+  <div *ngFor="let list of complete">
+    <h2>{{ list.category }}</h2>
+    <ul>
+      <li *ngFor="let item of list.items">
+        <div class="checkbox-group">
+          <span> {{ item.description }} </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</article>

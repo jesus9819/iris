@@ -1,0 +1,9 @@
+<app-header></app-header>
+
+<section>
+  <app-title [text]="'To do List'"></app-title>
+
+  <form-todo (item)="addItem($event)"></form-todo>
+
+  <list-todo [lists]="lists" (delete)="deleteItem($event)"></list-todo>
+</section>

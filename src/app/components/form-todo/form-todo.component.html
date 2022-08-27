@@ -1,0 +1,25 @@
+<article>
+  <form [formGroup]="form" (ngSubmit)="createTodo()">
+    <div class="select-group">
+      <i class="fa-solid fa-chevron-down"></i>
+
+      <select formControlName="category" [class.invalid]="validCategory">
+        <option value="" selected disabled>Seleccione...</option>
+        <option value="all">All</option>
+        <option value="house">House</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <input
+        formControlName="description"
+        type="text"
+        placeholder="Ingrese un texto..."
+        [class.invalid]="validDescription"
+      />
+      <button type="submit">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </form>
+</article>
